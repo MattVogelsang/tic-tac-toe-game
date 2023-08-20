@@ -4,64 +4,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Finger+Paint&display=swap" rel="stylesheet">
+
     <title>Tic Tac Toe</title>
     
     <style>
-    body {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 100vh;
-        margin: 0;
-        background-color: #bbb7b7;
-    }
-    
-    h1 {
-    font-size: 54px;
-    margin-top: -20% ;
-   margin-right: -11%;
-
+   body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #bbb7b7;
 }
 
-    .container {
-        padding: 40px;
-        height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        background-color: #f30999;
-    
-    }
-    
-    .board {
-        display: grid;
-        grid-template-columns: repeat(3, 100px);
-        grid-gap: 5px;
-        background-color: #f50ad6;
-        border: 5px solid #080000;
-    }
-    
+h1 {
+    font-size: 54px;
+    margin-top: -20%;
+    margin-right: -11%;
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+}
 
+.container {
+    padding: 40px;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #f30999;
+}
 
-    .cell {
-        width: 100px;
-        height: 100px;
-        font-size: 48px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: #ffffff;
-        color: #08f4b9;
-        cursor: pointer;
-    }
-    
-    
-    body {
-        color: var(--orange);
-        font-family: 'Finger Paint', Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    }
-    
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-gap: 5px;
+    background-color: #f50ad6;
+    border: 5px solid #080000;
+}
+
+.cell {
+    width: 100px;
+    height: 100px;
+    font-size: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    color: #08f4b9;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.cell:before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #08f4b9, #f30999, #08f4b9, #f30999);
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.cell:hover:before {
+    opacity: 1;
+}
+
+body {
+    color: var(--orange);
+    font-family: 'Finger Paint', Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
 </style>
 
 </head>
